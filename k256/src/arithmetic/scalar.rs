@@ -554,6 +554,7 @@ impl Eq for Scalar {}
 impl Neg for Scalar {
     type Output = Scalar;
 
+    #[inline(always)]
     fn neg(self) -> Scalar {
         self.negate()
     }
