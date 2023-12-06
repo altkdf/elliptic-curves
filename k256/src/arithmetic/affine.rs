@@ -221,6 +221,7 @@ impl DecompactPoint<Secp256k1> for AffinePoint {
 impl GroupEncoding for AffinePoint {
     type Repr = CompressedPoint;
 
+    #[inline(always)]
     fn from_bytes(bytes: &Self::Repr) -> CtOption<Self> {
         EncodedPoint::from_bytes(bytes)
             .map(|point| CtOption::new(point, Choice::from(1)))
