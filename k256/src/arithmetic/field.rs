@@ -249,6 +249,7 @@ impl FieldElement {
 impl Invert for FieldElement {
     type Output = CtOption<Self>;
 
+    #[inline(always)]
     fn invert(&self) -> CtOption<Self> {
         self.invert()
     }
