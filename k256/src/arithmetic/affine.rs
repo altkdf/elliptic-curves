@@ -120,6 +120,7 @@ impl AffineCoordinates for AffinePoint {
 }
 
 impl ConditionallySelectable for AffinePoint {
+    #[inline(always)]
     fn conditional_select(a: &AffinePoint, b: &AffinePoint, choice: Choice) -> AffinePoint {
         AffinePoint {
             x: FieldElement::conditional_select(&a.x, &b.x, choice),
