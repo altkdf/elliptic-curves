@@ -185,6 +185,7 @@ impl FieldElement5x52 {
     /// Fully normalizes the field element.
     /// That is, first four limbs are at most 52 bit large, the last limb is at most 48 bit large,
     /// and the value is less than the modulus.
+    #[inline(always)]
     pub fn normalize(&self) -> Self {
         let res = self.normalize_weak();
 
