@@ -168,6 +168,7 @@ impl Mul<Scalar> for AffinePoint {
 impl Mul<&Scalar> for AffinePoint {
     type Output = ProjectivePoint;
 
+    #[inline(always)]
     fn mul(self, scalar: &Scalar) -> ProjectivePoint {
         ProjectivePoint::from(self) * scalar
     }
