@@ -448,6 +448,7 @@ impl Invert for Scalar {
     /// variable-time operation can potentially leak secrets through
     /// sidechannels.
     #[allow(non_snake_case)]
+    #[inline(always)]
     fn invert_vartime(&self) -> CtOption<Self> {
         let mut u = *self;
         let mut v = Self::from_uint_unchecked(Secp256k1::ORDER);
