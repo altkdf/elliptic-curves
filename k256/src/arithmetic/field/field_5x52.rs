@@ -451,6 +451,7 @@ impl FieldElement5x52 {
     /// Returns self * self
     /// Brings the magnitude to 1 (but doesn't normalize the result).
     /// The magnitudes of arguments should be <= 8.
+    #[inline(always)]
     pub fn square(&self) -> Self {
         self.mul_inner(self)
     }
