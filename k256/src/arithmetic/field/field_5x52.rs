@@ -72,12 +72,14 @@ impl FieldElement5x52 {
     ///
     /// Returns None if the byte array does not contain a big-endian integer in the range
     /// [0, p).
+    #[inline(always)]
     pub fn from_bytes(bytes: &FieldBytes) -> CtOption<Self> {
         let res = Self::from_bytes_unchecked(bytes.as_ref());
         let overflow = res.get_overflow();
         CtOption::new(res, !overflow)
     }
 
+    #[inline(always)]
     pub const fn from_u64(val: u64) -> Self {
         let w0 = val & 0xFFFFFFFFFFFFF;
         let w1 = val >> 52;
