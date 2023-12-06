@@ -506,6 +506,7 @@ impl IsHigh for Scalar {
 impl Shr<usize> for Scalar {
     type Output = Self;
 
+    #[inline(always)]
     fn shr(self, rhs: usize) -> Self::Output {
         self.shr_vartime(rhs)
     }
