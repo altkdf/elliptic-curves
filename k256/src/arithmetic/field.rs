@@ -401,6 +401,7 @@ impl PartialEq for FieldElement {
 impl Add<FieldElement> for FieldElement {
     type Output = FieldElement;
 
+    #[inline(always)]
     fn add(self, other: FieldElement) -> FieldElement {
         FieldElement(self.0.add(&(other.0)))
     }
