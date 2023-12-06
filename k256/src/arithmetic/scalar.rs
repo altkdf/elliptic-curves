@@ -423,6 +423,7 @@ impl From<&Scalar> for ScalarPrimitive<Secp256k1> {
 impl FromUintUnchecked for Scalar {
     type Uint = U256;
 
+    #[inline(always)]
     fn from_uint_unchecked(uint: Self::Uint) -> Self {
         Self(uint)
     }
