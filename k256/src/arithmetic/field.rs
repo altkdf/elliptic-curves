@@ -72,6 +72,7 @@ impl FieldElement {
     /// # Returns
     ///
     /// If even, return `Choice(1)`.  Otherwise, return `Choice(0)`.
+    #[inline(always)]
     pub fn is_even(&self) -> Choice {
         !self.0.is_odd()
     }
