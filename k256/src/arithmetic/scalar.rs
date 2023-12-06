@@ -755,24 +755,28 @@ impl ReduceNonZero<U512> for Scalar {
 }
 
 impl Sum for Scalar {
+    #[inline(always)]
     fn sum<I: Iterator<Item = Self>>(iter: I) -> Self {
         iter.reduce(core::ops::Add::add).unwrap_or(Self::ZERO)
     }
 }
 
 impl<'a> Sum<&'a Scalar> for Scalar {
+    #[inline(always)]
     fn sum<I: Iterator<Item = &'a Scalar>>(iter: I) -> Self {
         iter.copied().sum()
     }
 }
 
 impl Product for Scalar {
+    #[inline(always)]
     fn product<I: Iterator<Item = Self>>(iter: I) -> Self {
         iter.reduce(core::ops::Mul::mul).unwrap_or(Self::ONE)
     }
 }
 
 impl<'a> Product<&'a Scalar> for Scalar {
+    #[inline(always)]
     fn product<I: Iterator<Item = &'a Scalar>>(iter: I) -> Self {
         iter.copied().product()
     }
