@@ -228,6 +228,7 @@ impl FieldElement5x52 {
     /// # Returns
     ///
     /// If zero, return `Choice(1)`.  Otherwise, return `Choice(0)`.
+    #[inline(always)]
     pub fn is_zero(&self) -> Choice {
         Choice::from(((self.0[0] | self.0[1] | self.0[2] | self.0[3] | self.0[4]) == 0) as u8)
     }
