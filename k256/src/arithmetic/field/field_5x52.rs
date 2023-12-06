@@ -495,6 +495,7 @@ impl ConditionallySelectable for FieldElement5x52 {
 }
 
 impl ConstantTimeEq for FieldElement5x52 {
+    #[inline(always)]
     fn ct_eq(&self, other: &Self) -> Choice {
         self.0[0].ct_eq(&other.0[0])
             & self.0[1].ct_eq(&other.0[1])
