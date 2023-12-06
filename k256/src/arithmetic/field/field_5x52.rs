@@ -238,6 +238,7 @@ impl FieldElement5x52 {
     /// # Returns
     ///
     /// If odd, return `Choice(1)`.  Otherwise, return `Choice(0)`.
+    #[inline(always)]
     pub fn is_odd(&self) -> Choice {
         (self.0[0] as u8 & 1).into()
     }
