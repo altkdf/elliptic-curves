@@ -83,26 +83,31 @@ impl Scalar {
     pub const ONE: Self = Self(U256::ONE);
 
     /// Checks if the scalar is zero.
+    #[inline(always)]
     pub fn is_zero(&self) -> Choice {
         self.0.is_zero()
     }
 
     /// Returns the SEC1 encoding of this scalar.
+    #[inline(always)]
     pub fn to_bytes(&self) -> FieldBytes {
         self.0.to_be_byte_array()
     }
 
     /// Negates the scalar.
+    #[inline(always)]
     pub const fn negate(&self) -> Self {
         Self(self.0.neg_mod(&ORDER))
     }
 
     /// Returns self + rhs mod n.
+    #[inline(always)]
     pub const fn add(&self, rhs: &Self) -> Self {
         Self(self.0.add_mod(&rhs.0, &ORDER))
     }
 
     /// Returns self - rhs mod n.
+    #[inline(always)]
     pub const fn sub(&self, rhs: &Self) -> Self {
         Self(self.0.sub_mod(&rhs.0, &ORDER))
     }
