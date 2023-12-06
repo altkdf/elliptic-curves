@@ -234,11 +234,13 @@ impl GroupEncoding for AffinePoint {
             .and_then(|point| Self::from_encoded_point(&point))
     }
 
+    #[inline(always)]
     fn from_bytes_unchecked(bytes: &Self::Repr) -> CtOption<Self> {
         // No unchecked conversion possible for compressed points
         Self::from_bytes(bytes)
     }
 
+    #[inline(always)]
     fn to_bytes(&self) -> Self::Repr {
         let encoded = self.to_encoded_point(true);
         let mut result = CompressedPoint::default();
