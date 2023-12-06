@@ -235,6 +235,7 @@ impl Field for Scalar {
     const ZERO: Self = Self::ZERO;
     const ONE: Self = Self::ONE;
 
+    #[inline(always)]
     fn random(mut rng: impl RngCore) -> Self {
         // Uses rejection sampling as the default random generation method,
         // which produces a uniformly random distribution of scalars.
