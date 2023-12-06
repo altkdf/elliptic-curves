@@ -148,6 +148,7 @@ impl Default for AffinePoint {
 impl DefaultIsZeroes for AffinePoint {}
 
 impl PartialEq for AffinePoint {
+    #[inline(always)]
     fn eq(&self, other: &AffinePoint) -> bool {
         self.ct_eq(other).into()
     }
