@@ -126,6 +126,7 @@ impl FieldElement5x52 {
     }
 
     /// Adds `x * (2^256 - modulus)`.
+    #[inline(always)]
     fn add_modulus_correction(&self, x: u64) -> Self {
         // add (2^256 - modulus) * x to the first limb
         let t0 = self.0[0] + x * 0x1000003D1u64;
