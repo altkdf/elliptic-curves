@@ -186,6 +186,7 @@ impl FieldElement {
 
     /// Returns the multiplicative inverse of self, if self is non-zero.
     /// The result has magnitude 1, but is not normalized.
+    #[inline(always)]
     pub fn invert(&self) -> CtOption<Self> {
         // The binary representation of (p - 2) has 5 blocks of 1s, with lengths in
         // { 1, 2, 22, 223 }. Use an addition chain to calculate 2^n - 1 for each block:
