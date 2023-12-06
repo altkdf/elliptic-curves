@@ -99,51 +99,60 @@ impl FieldElement {
     ///
     /// Returns None if the byte array does not contain a big-endian integer in the range
     /// [0, p).
+    #[inline(always)]
     pub fn from_bytes(bytes: &FieldBytes) -> CtOption<Self> {
         FieldElementImpl::from_bytes(bytes).map(Self)
     }
 
     /// Convert a `u64` to a field element.
+    #[inline(always)]
     pub const fn from_u64(w: u64) -> Self {
         Self(FieldElementImpl::from_u64(w))
     }
 
     /// Returns the SEC1 encoding of this field element.
+    #[inline(always)]
     pub fn to_bytes(self) -> FieldBytes {
         self.0.normalize().to_bytes()
     }
 
     /// Returns -self, treating it as a value of given magnitude.
     /// The provided magnitude must be equal or greater than the actual magnitude of `self`.
+    #[inline(always)]
     pub fn negate(&self, magnitude: u32) -> Self {
         Self(self.0.negate(magnitude))
     }
 
     /// Fully normalizes the field element.
     /// Brings the magnitude to 1 and modulo reduces the value.
+    #[inline(always)]
     pub fn normalize(&self) -> Self {
         Self(self.0.normalize())
     }
 
     /// Weakly normalizes the field element.
     /// Brings the magnitude to 1, but does not guarantee the value to be less than the modulus.
+    #[inline(always)]
     pub fn normalize_weak(&self) -> Self {
         Self(self.0.normalize_weak())
     }
 
     /// Checks if the field element becomes zero if normalized.
+    #[inline(always)]
     pub fn normalizes_to_zero(&self) -> Choice {
         self.0.normalizes_to_zero()
     }
 
     /// Multiplies by a single-limb integer.
     /// Multiplies the magnitude by the same value.
+    #[inline(always)]
     pub fn mul_single(&self, rhs: u32) -> Self {
         Self(self.0.mul_single(rhs))
     }
 
     /// Returns 2*self.
     /// Doubles the magnitude.
+    #[inline(always)]
     pub fn double(&self) -> Self {
         Self(self.0.add(&(self.0)))
     }
