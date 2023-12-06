@@ -168,6 +168,7 @@ impl FieldElement5x52 {
     }
 
     /// Brings the field element's magnitude to 1, but does not necessarily normalize it.
+    #[inline(always)]
     pub fn normalize_weak(&self) -> Self {
         // Reduce t4 at the start so there will be at most a single carry from the first pass
         let (t, x) = self.subtract_modulus_approximation();
