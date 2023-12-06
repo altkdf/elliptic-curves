@@ -215,11 +215,13 @@ impl Scalar {
 
     /// Attempts to parse the given byte array as a scalar.
     /// Does not check the result for being in the correct range.
+    #[inline(always)]
     pub(crate) const fn from_bytes_unchecked(bytes: &[u8; 32]) -> Self {
         Self(U256::from_be_slice(bytes))
     }
 
     /// Raises the scalar to the power `2^k`.
+    #[inline(always)]
     fn pow2k(&self, k: usize) -> Self {
         let mut x = *self;
         for _j in 0..k {
