@@ -157,6 +157,7 @@ impl FieldElement5x52 {
     }
 
     /// Checks if the field element is greater or equal to the modulus.
+    #[inline(always)]
     fn get_overflow(&self) -> Choice {
         let m = self.0[1] & self.0[2] & self.0[3];
         let x = (self.0[4] >> 48 != 0)
