@@ -343,14 +343,17 @@ impl PrimeField for FieldElement {
     ]));
     const DELTA: Self = Self::from_u64(9);
 
+    #[inline(always)]
     fn from_repr(repr: Self::Repr) -> CtOption<Self> {
         Self::from_bytes(&repr)
     }
 
+    #[inline(always)]
     fn to_repr(&self) -> Self::Repr {
         self.to_bytes()
     }
 
+    #[inline(always)]
     fn is_odd(&self) -> Choice {
         self.is_odd()
     }
