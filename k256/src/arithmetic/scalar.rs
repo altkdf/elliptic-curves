@@ -200,6 +200,7 @@ impl Scalar {
 
     /// Returns a uniformly-random scalar, generated using rejection sampling.
     // TODO(tarcieri): make this a `CryptoRng` when `ff` allows it
+    #[inline(always)]
     pub fn generate_vartime(rng: &mut impl RngCore) -> Self {
         let mut bytes = FieldBytes::default();
 
