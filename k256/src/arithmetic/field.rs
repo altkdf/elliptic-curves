@@ -514,6 +514,7 @@ impl MulAssign<&FieldElement> for FieldElement {
 impl Neg for FieldElement {
     type Output = FieldElement;
 
+    #[inline(always)]
     fn neg(self) -> FieldElement {
         self.negate(1)
     }
@@ -522,30 +523,35 @@ impl Neg for FieldElement {
 impl Neg for &FieldElement {
     type Output = FieldElement;
 
+    #[inline(always)]
     fn neg(self) -> FieldElement {
         self.negate(1)
     }
 }
 
 impl Sum for FieldElement {
+    #[inline(always)]
     fn sum<I: Iterator<Item = Self>>(iter: I) -> Self {
         iter.reduce(core::ops::Add::add).unwrap_or(Self::ZERO)
     }
 }
 
 impl<'a> Sum<&'a FieldElement> for FieldElement {
+    #[inline(always)]
     fn sum<I: Iterator<Item = &'a FieldElement>>(iter: I) -> Self {
         iter.copied().sum()
     }
 }
 
 impl Product for FieldElement {
+    #[inline(always)]
     fn product<I: Iterator<Item = Self>>(iter: I) -> Self {
         iter.reduce(core::ops::Mul::mul).unwrap_or(Self::ONE)
     }
 }
 
 impl<'a> Product<&'a FieldElement> for FieldElement {
+    #[inline(always)]
     fn product<I: Iterator<Item = &'a FieldElement>>(iter: I) -> Self {
         iter.copied().product()
     }
