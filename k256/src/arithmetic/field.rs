@@ -160,6 +160,7 @@ impl FieldElement {
     /// Returns self * rhs mod p
     /// Brings the magnitude to 1 (but doesn't normalize the result).
     /// The magnitudes of arguments should be <= 8.
+    #[inline(always)]
     pub fn mul(&self, rhs: &Self) -> Self {
         Self(self.0.mul(&(rhs.0)))
     }
