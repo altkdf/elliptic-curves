@@ -661,6 +661,7 @@ impl SubAssign<&Scalar> for Scalar {
 impl Mul<Scalar> for Scalar {
     type Output = Scalar;
 
+    #[inline(always)]
     fn mul(self, other: Scalar) -> Scalar {
         Scalar::mul(&self, &other)
     }
