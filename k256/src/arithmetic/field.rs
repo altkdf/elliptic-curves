@@ -464,6 +464,7 @@ impl SubAssign<FieldElement> for FieldElement {
 }
 
 impl SubAssign<&FieldElement> for FieldElement {
+    #[inline(always)]
     fn sub_assign(&mut self, other: &FieldElement) {
         *self = *self + -other;
     }
