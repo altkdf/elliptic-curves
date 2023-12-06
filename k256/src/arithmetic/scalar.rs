@@ -553,6 +553,7 @@ impl Add<Scalar> for Scalar {
 impl Add<&Scalar> for &Scalar {
     type Output = Scalar;
 
+    #[inline(always)]
     fn add(self, other: &Scalar) -> Scalar {
         Scalar::add(self, other)
     }
