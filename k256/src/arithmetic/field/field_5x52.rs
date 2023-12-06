@@ -24,6 +24,7 @@ impl FieldElement5x52 {
 
     /// Attempts to parse the given byte array as an SEC1-encoded field element.
     /// Does not check the result for being in the correct range.
+    #[inline(always)]
     pub(crate) const fn from_bytes_unchecked(bytes: &[u8; 32]) -> Self {
         let w0 = (bytes[31] as u64)
             | ((bytes[30] as u64) << 8)
