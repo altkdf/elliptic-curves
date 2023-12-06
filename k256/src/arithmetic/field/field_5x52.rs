@@ -206,6 +206,7 @@ impl FieldElement5x52 {
     }
 
     /// Checks if the field element becomes zero if normalized.
+    #[inline(always)]
     pub fn normalizes_to_zero(&self) -> Choice {
         let res = self.normalize_weak();
 
