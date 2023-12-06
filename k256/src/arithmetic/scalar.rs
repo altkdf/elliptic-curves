@@ -598,6 +598,7 @@ impl Sub<Scalar> for Scalar {
 impl Sub<&Scalar> for &Scalar {
     type Output = Scalar;
 
+    #[inline(always)]
     fn sub(self, other: &Scalar) -> Scalar {
         Scalar::sub(self, other)
     }
