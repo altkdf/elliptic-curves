@@ -506,6 +506,7 @@ impl ConstantTimeEq for FieldElement5x52 {
 }
 
 impl Zeroize for FieldElement5x52 {
+    #[inline(always)]
     fn zeroize(&mut self) {
         self.0.zeroize();
     }
