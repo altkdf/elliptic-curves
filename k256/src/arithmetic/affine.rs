@@ -188,6 +188,7 @@ impl Neg for AffinePoint {
 }
 
 impl DecompressPoint<Secp256k1> for AffinePoint {
+    #[inline(always)]
     fn decompress(x_bytes: &FieldBytes, y_is_odd: Choice) -> CtOption<Self> {
         FieldElement::from_bytes(x_bytes).and_then(|x| {
             let alpha = (x * &x * &x) + &CURVE_EQUATION_B;
