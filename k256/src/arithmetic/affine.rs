@@ -131,6 +131,7 @@ impl ConditionallySelectable for AffinePoint {
 }
 
 impl ConstantTimeEq for AffinePoint {
+    #[inline(always)]
     fn ct_eq(&self, other: &AffinePoint) -> Choice {
         (self.x.negate(1) + &other.x).normalizes_to_zero()
             & (self.y.negate(1) + &other.y).normalizes_to_zero()
