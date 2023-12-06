@@ -290,23 +290,28 @@ impl Field for FieldElement {
     }
 
     #[must_use]
+    #[inline(always)]
     fn square(&self) -> Self {
         self.square()
     }
 
     #[must_use]
+    #[inline(always)]
     fn double(&self) -> Self {
         self.double()
     }
 
+    #[inline(always)]
     fn invert(&self) -> CtOption<Self> {
         self.invert()
     }
 
+    #[inline(always)]
     fn sqrt(&self) -> CtOption<Self> {
         self.sqrt()
     }
 
+    #[inline(always)]
     fn sqrt_ratio(num: &Self, div: &Self) -> (Choice, Self) {
         ff::helpers::sqrt_ratio_generic(num, div)
     }
