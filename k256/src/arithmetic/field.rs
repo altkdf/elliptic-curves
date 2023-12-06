@@ -391,18 +391,21 @@ impl Add<&FieldElement> for FieldElement {
 impl Add<&FieldElement> for &FieldElement {
     type Output = FieldElement;
 
+    #[inline(always)]
     fn add(self, other: &FieldElement) -> FieldElement {
         FieldElement(self.0.add(&(other.0)))
     }
 }
 
 impl AddAssign<FieldElement> for FieldElement {
+    #[inline(always)]
     fn add_assign(&mut self, other: FieldElement) {
         *self = *self + &other;
     }
 }
 
 impl AddAssign<&FieldElement> for FieldElement {
+    #[inline(always)]
     fn add_assign(&mut self, other: &FieldElement) {
         *self = *self + other;
     }
