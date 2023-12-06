@@ -282,6 +282,7 @@ impl FromEncodedPoint<Secp256k1> for AffinePoint {
 }
 
 impl ToEncodedPoint<Secp256k1> for AffinePoint {
+    #[inline(always)]
     fn to_encoded_point(&self, compress: bool) -> EncodedPoint {
         EncodedPoint::conditional_select(
             &EncodedPoint::from_affine_coordinates(
