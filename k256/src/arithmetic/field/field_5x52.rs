@@ -252,6 +252,7 @@ impl FieldElement5x52 {
 
     /// Returns self + rhs mod p.
     /// Sums the magnitudes.
+    #[inline(always)]
     pub const fn add(&self, rhs: &Self) -> Self {
         Self([
             self.0[0] + rhs.0[0],
