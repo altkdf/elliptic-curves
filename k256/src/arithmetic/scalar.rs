@@ -250,15 +250,18 @@ impl Field for Scalar {
     }
 
     #[must_use]
+    #[inline(always)]
     fn square(&self) -> Self {
         Scalar::square(self)
     }
 
     #[must_use]
+    #[inline(always)]
     fn double(&self) -> Self {
         self.add(self)
     }
 
+    #[inline(always)]
     fn invert(&self) -> CtOption<Self> {
         Scalar::invert(self)
     }
