@@ -638,18 +638,21 @@ impl Sub<&Scalar> for &Scalar {
 impl Sub<&Scalar> for Scalar {
     type Output = Scalar;
 
+    #[inline(always)]
     fn sub(self, other: &Scalar) -> Scalar {
         Scalar::sub(&self, other)
     }
 }
 
 impl SubAssign<Scalar> for Scalar {
+    #[inline(always)]
     fn sub_assign(&mut self, rhs: Scalar) {
         *self = Scalar::sub(self, &rhs);
     }
 }
 
 impl SubAssign<&Scalar> for Scalar {
+    #[inline(always)]
     fn sub_assign(&mut self, rhs: &Scalar) {
         *self = Scalar::sub(self, rhs);
     }
