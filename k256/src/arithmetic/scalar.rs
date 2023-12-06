@@ -118,6 +118,7 @@ impl Scalar {
     }
 
     /// Modulo squares the scalar.
+    #[inline(always)]
     pub fn square(&self) -> Self {
         self.mul(self)
     }
