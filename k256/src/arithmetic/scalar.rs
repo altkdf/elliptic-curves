@@ -189,6 +189,7 @@ impl Scalar {
     }
 
     /// Returns a (nearly) uniformly-random scalar, generated in constant time.
+    #[inline(always)]
     pub fn generate_biased(rng: &mut impl CryptoRngCore) -> Self {
         // We reduce a random 512-bit value into a 256-bit field, which results in a
         // negligible bias from the uniform distribution, but the process is constant-time.
