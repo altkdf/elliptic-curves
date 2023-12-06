@@ -459,18 +459,21 @@ impl Mul<&FieldElement> for FieldElement {
 impl Mul<&FieldElement> for &FieldElement {
     type Output = FieldElement;
 
+    #[inline(always)]
     fn mul(self, other: &FieldElement) -> FieldElement {
         FieldElement(self.0.mul(&(other.0)))
     }
 }
 
 impl MulAssign<FieldElement> for FieldElement {
+    #[inline(always)]
     fn mul_assign(&mut self, rhs: FieldElement) {
         *self = *self * &rhs;
     }
 }
 
 impl MulAssign<&FieldElement> for FieldElement {
+    #[inline(always)]
     fn mul_assign(&mut self, rhs: &FieldElement) {
         *self = *self * rhs;
     }
