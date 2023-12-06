@@ -255,6 +255,7 @@ impl FromEncodedPoint<Secp256k1> for AffinePoint {
     /// # Returns
     ///
     /// `None` value if `encoded_point` is not on the secp256k1 curve.
+    #[inline(always)]
     fn from_encoded_point(encoded_point: &EncodedPoint) -> CtOption<Self> {
         match encoded_point.coordinates() {
             sec1::Coordinates::Identity => CtOption::new(Self::IDENTITY, 1.into()),
