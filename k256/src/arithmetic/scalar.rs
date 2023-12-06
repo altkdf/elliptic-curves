@@ -515,30 +515,35 @@ impl Shr<usize> for Scalar {
 impl Shr<usize> for &Scalar {
     type Output = Scalar;
 
+    #[inline(always)]
     fn shr(self, rhs: usize) -> Self::Output {
         self.shr_vartime(rhs)
     }
 }
 
 impl ShrAssign<usize> for Scalar {
+    #[inline(always)]
     fn shr_assign(&mut self, rhs: usize) {
         *self = *self >> rhs;
     }
 }
 
 impl ConditionallySelectable for Scalar {
+    #[inline(always)]
     fn conditional_select(a: &Self, b: &Self, choice: Choice) -> Self {
         Self(U256::conditional_select(&a.0, &b.0, choice))
     }
 }
 
 impl ConstantTimeEq for Scalar {
+    #[inline(always)]
     fn ct_eq(&self, other: &Self) -> Choice {
         self.0.ct_eq(&(other.0))
     }
 }
 
 impl PartialEq for Scalar {
+    #[inline(always)]
     fn eq(&self, other: &Self) -> bool {
         self.ct_eq(other).into()
     }
