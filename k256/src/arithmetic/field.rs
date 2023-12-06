@@ -367,12 +367,14 @@ impl ConditionallySelectable for FieldElement {
 }
 
 impl ConstantTimeEq for FieldElement {
+    #[inline(always)]
     fn ct_eq(&self, other: &Self) -> Choice {
         self.0.ct_eq(&(other.0))
     }
 }
 
 impl Default for FieldElement {
+    #[inline(always)]
     fn default() -> Self {
         Self::ZERO
     }
