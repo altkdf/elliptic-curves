@@ -497,6 +497,7 @@ impl Invert for Scalar {
 }
 
 impl IsHigh for Scalar {
+    #[inline(always)]
     fn is_high(&self) -> Choice {
         self.0.ct_gt(&FRAC_MODULUS_2)
     }
