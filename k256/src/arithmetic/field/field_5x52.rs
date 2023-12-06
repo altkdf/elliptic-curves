@@ -278,6 +278,7 @@ impl FieldElement5x52 {
 
     /// Multiplies by a single-limb integer.
     /// Multiplies the magnitude by the same value.
+    #[inline(always)]
     pub const fn mul_single(&self, rhs: u32) -> Self {
         let rhs_u64 = rhs as u64;
         Self([
