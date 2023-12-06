@@ -679,18 +679,21 @@ impl Mul<&Scalar> for &Scalar {
 impl Mul<&Scalar> for Scalar {
     type Output = Scalar;
 
+    #[inline(always)]
     fn mul(self, other: &Scalar) -> Scalar {
         Scalar::mul(&self, other)
     }
 }
 
 impl MulAssign<Scalar> for Scalar {
+    #[inline(always)]
     fn mul_assign(&mut self, rhs: Scalar) {
         *self = Scalar::mul(self, &rhs);
     }
 }
 
 impl MulAssign<&Scalar> for Scalar {
+    #[inline(always)]
     fn mul_assign(&mut self, rhs: &Scalar) {
         *self = Scalar::mul(self, rhs);
     }
