@@ -126,6 +126,7 @@ impl Scalar {
     /// Right shifts the scalar.
     ///
     /// Note: not constant-time with respect to the `shift` parameter.
+    #[inline(always)]
     pub fn shr_vartime(&self, shift: usize) -> Scalar {
         Self(self.0.shr_vartime(shift))
     }
