@@ -220,6 +220,7 @@ impl FieldElement {
 
     /// Returns the square root of self mod p, or `None` if no square root exists.
     /// The result has magnitude 1, but is not normalized.
+    #[inline(always)]
     pub fn sqrt(&self) -> CtOption<Self> {
         /*
         Given that p is congruent to 3 mod 4, we can compute the square root of
