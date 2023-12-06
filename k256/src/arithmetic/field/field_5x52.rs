@@ -149,6 +149,7 @@ impl FieldElement5x52 {
 
     /// Subtracts the overflow in the last limb and return it with the new field element.
     /// Equivalent to subtracting a multiple of 2^256.
+    #[inline(always)]
     fn subtract_modulus_approximation(&self) -> (Self, u64) {
         let x = self.0[4] >> 48;
         let t4 = self.0[4] & 0x0FFFFFFFFFFFFu64; // equivalent to self -= 2^256 * x
