@@ -67,6 +67,7 @@ fn bench_point_mul_by_generator<'a, M: Measurement>(group: &mut BenchmarkGroup<'
 
 fn bench_high_level(c: &mut Criterion) {
     let mut group = c.benchmark_group("high-level operations");
+    group.noise_threshold(0.04).measurement_time(std::time::Duration::from_secs(15));
     bench_point_mul(&mut group);
     bench_point_mul_by_generator(&mut group);
     bench_point_lincomb(&mut group);
@@ -103,6 +104,7 @@ fn bench_scalar_invert<'a, M: Measurement>(group: &mut BenchmarkGroup<'a, M>) {
 
 fn bench_scalar(c: &mut Criterion) {
     let mut group = c.benchmark_group("scalar operations");
+    group.noise_threshold(0.04).measurement_time(std::time::Duration::from_secs(15));
     bench_scalar_sub(&mut group);
     bench_scalar_add(&mut group);
     bench_scalar_mul(&mut group);

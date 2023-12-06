@@ -64,6 +64,7 @@ fn bench_field_element_invert<'a, M: Measurement>(group: &mut BenchmarkGroup<'a,
 
 fn bench_field_element(c: &mut Criterion) {
     let mut group = c.benchmark_group("field element operations");
+    group.noise_threshold(0.04).measurement_time(std::time::Duration::from_secs(15));
     bench_field_element_normalize_weak(&mut group);
     bench_field_element_normalize(&mut group);
     bench_field_element_mul(&mut group);
