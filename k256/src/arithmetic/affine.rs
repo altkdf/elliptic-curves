@@ -212,6 +212,7 @@ impl DecompressPoint<Secp256k1> for AffinePoint {
 ///
 /// [BIP 340]: https://github.com/bitcoin/bips/blob/master/bip-0340.mediawiki
 impl DecompactPoint<Secp256k1> for AffinePoint {
+    #[inline(always)]
     fn decompact(x_bytes: &FieldBytes) -> CtOption<Self> {
         Self::decompress(x_bytes, Choice::from(0))
     }
