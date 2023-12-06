@@ -442,6 +442,7 @@ impl AddAssign<&FieldElement> for FieldElement {
 impl Sub<FieldElement> for FieldElement {
     type Output = FieldElement;
 
+    #[inline(always)]
     fn sub(self, other: FieldElement) -> FieldElement {
         self + -other
     }
