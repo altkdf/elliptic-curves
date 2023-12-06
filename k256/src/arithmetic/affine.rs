@@ -177,6 +177,7 @@ impl Mul<&Scalar> for AffinePoint {
 impl Neg for AffinePoint {
     type Output = AffinePoint;
 
+    #[inline(always)]
     fn neg(self) -> Self::Output {
         AffinePoint {
             x: self.x,
