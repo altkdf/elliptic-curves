@@ -252,6 +252,7 @@ impl FieldElement5x52 {
     /// Returns -self, treating it as a value of given magnitude.
     /// The provided magnitude must be equal or greater than the actual magnitude of `self`.
     /// Raises the magnitude by 1.
+    #[inline(always)]
     pub const fn negate(&self, magnitude: u32) -> Self {
         let m = (magnitude + 1) as u64;
         let r0 = 0xFFFFEFFFFFC2Fu64 * 2 * m - self.0[0];
