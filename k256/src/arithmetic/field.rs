@@ -83,12 +83,14 @@ impl FieldElement {
     /// # Returns
     ///
     /// If odd, return `Choice(1)`.  Otherwise, return `Choice(0)`.
+    #[inline(always)]
     pub fn is_odd(&self) -> Choice {
         self.0.is_odd()
     }
 
     /// Attempts to parse the given byte array as an SEC1-encoded field element.
     /// Does not check the result for being in the correct range.
+    #[inline(always)]
     pub(crate) const fn from_bytes_unchecked(bytes: &[u8; 32]) -> Self {
         Self(FieldElementImpl::from_bytes_unchecked(bytes))
     }
