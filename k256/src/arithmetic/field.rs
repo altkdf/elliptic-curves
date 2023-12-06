@@ -277,6 +277,7 @@ impl Field for FieldElement {
     const ZERO: Self = Self::ZERO;
     const ONE: Self = Self::ONE;
 
+    #[inline(always)]
     fn random(mut rng: impl RngCore) -> Self {
         let mut bytes = FieldBytes::default();
 
