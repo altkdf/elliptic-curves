@@ -38,6 +38,7 @@ fn test_scalar_z() -> FieldBytes {
 
 fn bench_ecdsa(c: &mut Criterion) {
     let mut group = c.benchmark_group("ecdsa");
+    group.noise_threshold(0.04).measurement_time(std::time::Duration::from_secs(15));
 
     let d = test_scalar_d();
     let k = test_scalar_k();
