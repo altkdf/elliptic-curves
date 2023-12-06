@@ -385,12 +385,14 @@ impl DefaultIsZeroes for FieldElement {}
 impl Eq for FieldElement {}
 
 impl From<u64> for FieldElement {
+    #[inline(always)]
     fn from(k: u64) -> Self {
         Self(FieldElementImpl::from_u64(k))
     }
 }
 
 impl PartialEq for FieldElement {
+    #[inline(always)]
     fn eq(&self, other: &Self) -> bool {
         self.0.ct_eq(&(other.0)).into()
     }
