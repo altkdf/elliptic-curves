@@ -736,6 +736,7 @@ impl<'a> Sum<&'a Scalar> for Scalar {
 }
 
 impl Product for Scalar {
+    #[inline(always)]
     fn product<I: Iterator<Item = Self>>(iter: I) -> Self {
         iter.reduce(core::ops::Mul::mul).unwrap_or(Self::ONE)
     }
