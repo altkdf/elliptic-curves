@@ -162,6 +162,7 @@ impl FieldElement {
     }
 
     /// Raises the scalar to the power `2^k`
+    #[inline(always)]
     fn pow2k(&self, k: usize) -> Self {
         let mut x = *self;
         for _j in 0..k {
