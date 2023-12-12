@@ -729,6 +729,7 @@ impl Sum for Scalar {
 }
 
 impl<'a> Sum<&'a Scalar> for Scalar {
+    #[inline(always)]
     fn sum<I: Iterator<Item = &'a Scalar>>(iter: I) -> Self {
         iter.copied().sum()
     }
