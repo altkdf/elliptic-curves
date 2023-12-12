@@ -83,6 +83,7 @@ impl Scalar {
     pub const ONE: Self = Self(U256::ONE);
 
     /// Checks if the scalar is zero.
+    #[inline(always)]
     pub fn is_zero(&self) -> Choice {
         self.0.is_zero()
     }
