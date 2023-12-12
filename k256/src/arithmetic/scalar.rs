@@ -95,6 +95,7 @@ impl Scalar {
     }
 
     /// Negates the scalar.
+    #[inline(always)]
     pub const fn negate(&self) -> Self {
         Self(self.0.neg_mod(&ORDER))
     }
