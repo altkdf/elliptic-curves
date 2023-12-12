@@ -291,6 +291,7 @@ impl Field for FieldElement {
         self.sqrt()
     }
 
+    #[inline(always)]
     fn sqrt_ratio(num: &Self, div: &Self) -> (Choice, Self) {
         ff::helpers::sqrt_ratio_generic(num, div)
     }
