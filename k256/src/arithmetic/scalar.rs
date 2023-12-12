@@ -743,6 +743,7 @@ impl Product for Scalar {
 }
 
 impl<'a> Product<&'a Scalar> for Scalar {
+    #[inline(always)]
     fn product<I: Iterator<Item = &'a Scalar>>(iter: I) -> Self {
         iter.copied().product()
     }
