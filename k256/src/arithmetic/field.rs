@@ -156,6 +156,7 @@ impl FieldElement {
     ///
     /// Brings the magnitude to 1 (but doesn't normalize the result).
     /// The magnitudes of arguments should be <= 8.
+    #[inline(always)]
     pub fn square(&self) -> Self {
         Self(self.0.square())
     }
