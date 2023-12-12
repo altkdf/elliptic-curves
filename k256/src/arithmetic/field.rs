@@ -405,6 +405,7 @@ impl AddAssign<FieldElement> for FieldElement {
 }
 
 impl AddAssign<&FieldElement> for FieldElement {
+    #[inline(always)]
     fn add_assign(&mut self, other: &FieldElement) {
         *self = *self + other;
     }
