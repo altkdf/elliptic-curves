@@ -276,6 +276,7 @@ impl Field for FieldElement {
     }
 
     #[must_use]
+    #[inline(always)]
     fn double(&self) -> Self {
         self.double()
     }
