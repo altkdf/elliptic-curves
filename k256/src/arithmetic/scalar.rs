@@ -677,7 +677,8 @@ impl Reduce<U256> for Scalar {
 
 impl Reduce<U512> for Scalar {
     type Bytes = WideBytes;
-
+    
+    #[inline(always)]
     fn reduce(w: U512) -> Self {
         WideScalar(w).reduce()
     }
