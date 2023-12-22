@@ -651,6 +651,7 @@ impl Mul<&Scalar> for Scalar {
 }
 
 impl MulAssign<Scalar> for Scalar {
+    #[inline(always)]
     fn mul_assign(&mut self, rhs: Scalar) {
         *self = Scalar::multiply(self, &rhs);
     }
