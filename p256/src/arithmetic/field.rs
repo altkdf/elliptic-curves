@@ -671,6 +671,7 @@ impl Neg for &FieldElement {
 }
 
 impl Sum for FieldElement {
+    #[inline(always)]
     fn sum<I: Iterator<Item = Self>>(iter: I) -> Self {
         iter.reduce(core::ops::Add::add).unwrap_or(Self::ZERO)
     }
