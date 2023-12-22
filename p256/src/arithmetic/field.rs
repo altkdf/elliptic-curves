@@ -623,6 +623,7 @@ impl Mul<FieldElement> for FieldElement {
 impl Mul<&FieldElement> for FieldElement {
     type Output = FieldElement;
 
+    #[inline(always)]
     fn mul(self, other: &FieldElement) -> FieldElement {
         FieldElement::multiply(&self, other)
     }
