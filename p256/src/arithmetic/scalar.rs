@@ -740,6 +740,7 @@ impl<'a> Product<&'a Scalar> for Scalar {
 }
 
 impl ConditionallySelectable for Scalar {
+    #[inline(always)]
     fn conditional_select(a: &Self, b: &Self, choice: Choice) -> Self {
         Self(U256::conditional_select(&a.0, &b.0, choice))
     }
