@@ -692,6 +692,7 @@ impl Product for FieldElement {
 }
 
 impl<'a> Product<&'a FieldElement> for FieldElement {
+    #[inline(always)]
     fn product<I: Iterator<Item = &'a Self>>(iter: I) -> Self {
         iter.copied().product()
     }
