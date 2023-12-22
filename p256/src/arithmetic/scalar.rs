@@ -137,6 +137,7 @@ impl Scalar {
     /// Returns the multiplicative inverse of self.
     ///
     /// Does not check that self is non-zero.
+    #[inline(always)]
     const fn invert_unchecked(&self) -> Self {
         // We need to find b such that b * a ≡ 1 mod p. As we are in a prime
         // field, we can apply Fermat's Little Theorem:
