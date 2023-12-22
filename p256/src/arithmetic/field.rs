@@ -655,6 +655,7 @@ impl MulAssign<&FieldElement> for FieldElement {
 impl Neg for FieldElement {
     type Output = FieldElement;
 
+    #[inline(always)]
     fn neg(self) -> FieldElement {
         FieldElement::ZERO - &self
     }
