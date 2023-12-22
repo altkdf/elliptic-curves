@@ -101,6 +101,7 @@ impl Scalar {
     }
 
     /// Returns 2*self.
+    #[inline(always)]
     pub const fn double(&self) -> Self {
         self.add(self)
     }
