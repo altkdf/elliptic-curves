@@ -91,6 +91,7 @@ impl Scalar {
     pub const ONE: Self = Self(U256::ONE);
 
     /// Returns the SEC1 encoding of this scalar.
+    #[inline(always)]
     pub fn to_bytes(&self) -> FieldBytes {
         self.0.to_be_byte_array()
     }
