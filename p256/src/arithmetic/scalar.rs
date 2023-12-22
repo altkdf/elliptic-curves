@@ -221,6 +221,7 @@ impl Field for Scalar {
     }
 
     #[must_use]
+    #[inline(always)]
     fn square(&self) -> Self {
         Scalar::square(self)
     }
