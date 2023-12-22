@@ -747,6 +747,7 @@ impl ConditionallySelectable for Scalar {
 }
 
 impl ConstantTimeEq for Scalar {
+    #[inline(always)]
     fn ct_eq(&self, other: &Self) -> Choice {
         self.0.ct_eq(&other.0)
     }
