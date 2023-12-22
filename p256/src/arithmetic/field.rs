@@ -518,6 +518,7 @@ impl From<u64> for FieldElement {
 }
 
 impl PartialEq for FieldElement {
+    #[inline(always)]
     fn eq(&self, other: &Self) -> bool {
         self.ct_eq(other).into()
     }
