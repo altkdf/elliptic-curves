@@ -355,6 +355,7 @@ impl FieldElement {
     }
 
     /// Returns the multiplicative inverse of self, if self is non-zero.
+    #[inline(always)]
     pub fn invert(&self) -> CtOption<Self> {
         CtOption::new(self.invert_unchecked(), !self.is_zero())
     }
