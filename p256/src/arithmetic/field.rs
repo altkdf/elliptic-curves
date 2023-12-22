@@ -116,6 +116,7 @@ impl FieldElement {
     }
 
     /// Returns self + rhs mod p
+    #[inline(always)]
     pub const fn add(&self, rhs: &Self) -> Self {
         let a = u256_to_u64x4(self.0);
         let b = u256_to_u64x4(rhs.0);
