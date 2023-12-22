@@ -106,6 +106,7 @@ impl Scalar {
     }
 
     /// Returns self - rhs mod n.
+    #[inline(always)]
     pub const fn sub(&self, rhs: &Self) -> Self {
         Self(self.0.sub_mod(&rhs.0, &NistP256::ORDER))
     }
