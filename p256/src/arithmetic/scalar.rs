@@ -158,6 +158,7 @@ impl Scalar {
 
     /// Exponentiates `self` by `exp`, where `exp` is a little-endian order integer
     /// exponent.
+    #[inline(always)]
     pub const fn pow_vartime(&self, exp: &[u64]) -> Self {
         let mut res = Self::ONE;
 
