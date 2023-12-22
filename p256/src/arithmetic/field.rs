@@ -326,6 +326,7 @@ impl FieldElement {
     }
 
     /// Returns self^(2^n) mod p
+    #[inline(always)]
     const fn sqn(&self, n: usize) -> Self {
         let mut x = *self;
         let mut i = 0;
