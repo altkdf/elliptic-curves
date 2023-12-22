@@ -445,6 +445,7 @@ impl Field for FieldElement {
         self.double()
     }
 
+    #[inline(always)]
     fn invert(&self) -> CtOption<Self> {
         self.invert()
     }
