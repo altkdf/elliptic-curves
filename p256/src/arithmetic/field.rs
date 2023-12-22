@@ -151,6 +151,7 @@ impl FieldElement {
         Self::sub(&Self::ZERO, self)
     }
 
+    #[inline(always)]
     fn from_bytes_wide(bytes: [u8; 64]) -> Self {
         #[allow(clippy::unwrap_used)]
         FieldElement::montgomery_reduce(
@@ -291,7 +292,6 @@ impl FieldElement {
     }
 
     /// Returns self * rhs mod p
-    /// 
     #[inline(always)]
     pub const fn multiply(&self, rhs: &Self) -> Self {
         // Schoolbook multiplication.
