@@ -605,6 +605,7 @@ impl Sub<&Scalar> for &Scalar {
 impl Sub<&Scalar> for Scalar {
     type Output = Scalar;
 
+    #[inline(always)]
     fn sub(self, other: &Scalar) -> Scalar {
         Scalar::sub(&self, other)
     }
@@ -839,4 +840,6 @@ mod tests {
         ]);
 
         let scalar_bits = ScalarBits::from(&-Scalar::from(1u32));
-        assert_eq!(minus_one, 
+        assert_eq!(minus_one, scalar_bits);
+    }
+}
