@@ -291,6 +291,8 @@ impl FieldElement {
     }
 
     /// Returns self * rhs mod p
+    /// 
+    #[inline(always)]
     pub const fn multiply(&self, rhs: &Self) -> Self {
         // Schoolbook multiplication.
         let a = u256_to_u64x4(self.0);
