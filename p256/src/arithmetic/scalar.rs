@@ -690,6 +690,7 @@ impl Reduce<U256> for Scalar {
         Self(U256::conditional_select(&w, &r, !underflow))
     }
 
+    #[inline(always)]
     fn reduce_bytes(bytes: &FieldBytes) -> Self {
         Self::reduce(U256::from_be_byte_array(*bytes))
     }
