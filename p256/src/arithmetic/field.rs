@@ -639,12 +639,14 @@ impl Mul<&FieldElement> for &FieldElement {
 }
 
 impl MulAssign<FieldElement> for FieldElement {
+    #[inline(always)]
     fn mul_assign(&mut self, other: FieldElement) {
         *self = FieldElement::multiply(self, &other);
     }
 }
 
 impl MulAssign<&FieldElement> for FieldElement {
+    #[inline(always)]
     fn mul_assign(&mut self, other: &FieldElement) {
         *self = FieldElement::multiply(self, other);
     }
