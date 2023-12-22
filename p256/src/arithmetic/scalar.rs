@@ -712,6 +712,7 @@ impl ReduceNonZero<U256> for Scalar {
 }
 
 impl Sum for Scalar {
+    #[inline(always)]
     fn sum<I: Iterator<Item = Self>>(iter: I) -> Self {
         iter.reduce(core::ops::Add::add).unwrap_or(Self::ZERO)
     }
