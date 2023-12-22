@@ -683,6 +683,7 @@ impl<'a> Neg for &'a Scalar {
 impl Reduce<U256> for Scalar {
     type Bytes = FieldBytes;
 
+    #[inline(always)]
     fn reduce(w: U256) -> Self {
         let (r, underflow) = w.sbb(&NistP256::ORDER, Limb::ZERO);
         let underflow = Choice::from((underflow.0 >> (Limb::BITS - 1)) as u8);
