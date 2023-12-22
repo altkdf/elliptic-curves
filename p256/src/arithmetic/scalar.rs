@@ -227,6 +227,7 @@ impl Field for Scalar {
     }
 
     #[must_use]
+    #[inline(always)]
     fn double(&self) -> Self {
         self.add(self)
     }
