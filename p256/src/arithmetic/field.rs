@@ -340,6 +340,7 @@ impl FieldElement {
     ///
     /// **This operation is variable time with respect to the exponent.** If the exponent
     /// is fixed, this operation is effectively constant time.
+    #[inline(always)]
     pub fn pow_vartime(&self, by: &[u64; 4]) -> Self {
         let mut res = Self::ONE;
         for e in by.iter().rev() {
