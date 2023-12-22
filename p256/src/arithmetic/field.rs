@@ -383,6 +383,7 @@ impl FieldElement {
     }
 
     /// Returns the square root of self mod p, or `None` if no square root exists.
+    #[inline(always)]
     pub fn sqrt(&self) -> CtOption<Self> {
         // We need to find alpha such that alpha^2 = beta mod p. For secp256r1,
         // p ≡ 3 mod 4. By Euler's Criterion, beta^(p-1)/2 ≡ 1 mod p. So:
