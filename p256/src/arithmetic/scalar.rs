@@ -111,6 +111,7 @@ impl Scalar {
     }
 
     /// Returns self * rhs mod n
+    #[inline(always)]
     pub const fn multiply(&self, rhs: &Self) -> Self {
         let (lo, hi) = self.0.mul_wide(&rhs.0);
         Self(barrett_reduce(lo, hi))
