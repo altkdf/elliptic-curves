@@ -117,6 +117,7 @@ impl Scalar {
     }
 
     /// Returns self * self mod p
+    #[inline(always)]
     pub const fn square(&self) -> Self {
         // Schoolbook multiplication.
         self.multiply(self)
