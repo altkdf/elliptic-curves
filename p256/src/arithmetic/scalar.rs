@@ -705,6 +705,7 @@ impl ReduceNonZero<U256> for Scalar {
         Self(U256::conditional_select(&w, &r, !underflow).wrapping_add(&U256::ONE))
     }
 
+    #[inline(always)]
     fn reduce_nonzero_bytes(bytes: &FieldBytes) -> Self {
         Self::reduce_nonzero(U256::from_be_byte_array(*bytes))
     }
