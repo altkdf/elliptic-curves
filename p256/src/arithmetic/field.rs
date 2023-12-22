@@ -450,6 +450,7 @@ impl Field for FieldElement {
         self.invert()
     }
 
+    #[inline(always)]
     fn sqrt(&self) -> CtOption<Self> {
         self.sqrt()
     }
