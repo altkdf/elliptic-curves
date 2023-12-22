@@ -53,6 +53,7 @@ impl FieldElement {
     ///
     /// Returns None if the byte array does not contain a big-endian integer in the range
     /// [0, p).
+    #[inline(always)]
     pub fn from_bytes(bytes: FieldBytes) -> CtOption<Self> {
         Self::from_uint(U256::from_be_byte_array(bytes))
     }
